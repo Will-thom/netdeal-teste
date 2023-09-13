@@ -1,0 +1,411 @@
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+CREATE DATABASE `netdealdb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ 
+/*!80016 DEFAULT ENCRYPTION='N' */;
+
+CREATE TABLE netdealdb.acesso (
+	id INTEGER auto_increment NOT NULL,
+	login varchar(100) NOT NULL,
+	acesso VARCHAR(100) NOT NULL,
+	CONSTRAINT acesso_pk PRIMARY KEY (id)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE netdealdb.cargo (
+	id INTEGER auto_increment NOT NULL,
+	descricao varchar(100) NOT NULL,
+	CONSTRAINT cargo_pk PRIMARY KEY (id)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_0900_ai_ci;
+
+ALTER TABLE netdealdb.cargo MODIFY COLUMN id INTEGER auto_increment NOT NULL;
+
+INSERT INTO netdealdb.cargo
+(descricao)
+VALUES('Pessoa Sócia Majoritária');
+
+INSERT INTO netdealdb.cargo
+(descricao)
+VALUES('Pessoa Sócia');
+
+INSERT INTO netdealdb.cargo
+(descricao)
+VALUES('Pessoa Diretora Geral');
+
+INSERT INTO netdealdb.cargo
+(descricao)
+VALUES('Pessoa Diretora TI');
+
+INSERT INTO netdealdb.cargo
+(descricao)
+VALUES('Pessoa Diretora Financeiro');
+
+INSERT INTO netdealdb.cargo
+(descricao)
+VALUES('Pessoa Diretora Recursos Humanos');
+
+INSERT INTO netdealdb.cargo
+(descricao)
+VALUES('Pessoa Gerente TI');
+
+INSERT INTO netdealdb.cargo
+(descricao)
+VALUES('Pessoa Gerente Financeiro');
+
+INSERT INTO netdealdb.cargo
+(descricao)
+VALUES('Pessoa Gerente Recursos Humanos');
+
+INSERT INTO netdealdb.cargo
+(descricao)
+VALUES('Pessoa Líder Tecnica TI');
+
+INSERT INTO netdealdb.cargo
+(descricao)
+VALUES('Pessoa Líder Técnica Financeiro');
+
+INSERT INTO netdealdb.cargo
+(descricao)
+VALUES('Pessoa Líder Técnica Recursos Humanos');
+
+INSERT INTO netdealdb.cargo
+(descricao)
+VALUES('Pessoa Analista de Banco de Dados');
+
+INSERT INTO netdealdb.cargo
+(descricao)
+VALUES('Pessoa Analista de Segurança de Redes');
+
+INSERT INTO netdealdb.cargo
+(descricao)
+VALUES('Pessoa Analista de Sistemas');
+
+INSERT INTO netdealdb.cargo
+(descricao)
+VALUES('Pessoa Analista de Contas');
+
+INSERT INTO netdealdb.cargo
+(descricao)
+VALUES('Pessoa Analista de Recursos Humanos');
+
+
+CREATE TABLE netdealdb.usuario (
+	id INTEGER auto_increment NOT NULL,
+	nome varchar(100) NOT NULL,
+	id_acesso INTEGER NOT NULL,
+	CONSTRAINT usuario_pk PRIMARY KEY (id),
+	CONSTRAINT usuario_FK FOREIGN KEY (id_acesso) REFERENCES netdealdb.acesso(id)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_0900_ai_ci;
+
+
+ALTER TABLE netdealdb.usuario ADD id_cargo INTEGER NOT NULL;
+ALTER TABLE netdealdb.usuario ADD CONSTRAINT usuario_FK_1 FOREIGN KEY (id_cargo) REFERENCES netdealdb.cargo(id);
+
+
+INSERT INTO netdealdb.acesso
+(login, acesso)
+VALUES('login1', '12345');
+
+INSERT INTO netdealdb.acesso
+(login, acesso)
+VALUES('login2', '12345');
+
+INSERT INTO netdealdb.acesso
+(login, acesso)
+VALUES('login3', '12345');
+
+INSERT INTO netdealdb.acesso
+(login, acesso)
+VALUES('login4', '12345');
+
+INSERT INTO netdealdb.acesso
+(login, acesso)
+VALUES('login5', '12345');
+
+INSERT INTO netdealdb.acesso
+(login, acesso)
+VALUES('login6', '12345');
+
+INSERT INTO netdealdb.acesso
+(login, acesso)
+VALUES('login7', '12345');
+
+INSERT INTO netdealdb.acesso
+(login, acesso)
+VALUES('login8', '12345');
+
+INSERT INTO netdealdb.acesso
+(login, acesso)
+VALUES('login9', '12345');
+
+INSERT INTO netdealdb.acesso
+(login, acesso)
+VALUES('login10', '12345');
+
+INSERT INTO netdealdb.acesso
+(login, acesso)
+VALUES('login11', '12345');
+
+INSERT INTO netdealdb.acesso
+(login, acesso)
+VALUES('login12', '12345');
+
+INSERT INTO netdealdb.acesso
+(login, acesso)
+VALUES('login13', '12345');
+
+INSERT INTO netdealdb.acesso
+(login, acesso)
+VALUES('login14', '12345');
+
+INSERT INTO netdealdb.acesso
+(login, acesso)
+VALUES('login15', '12345');
+
+INSERT INTO netdealdb.acesso
+(login, acesso)
+VALUES('login16', '12345');
+
+INSERT INTO netdealdb.acesso
+(login, acesso)
+VALUES('login17', '12345');
+
+INSERT INTO netdealdb.usuario
+(nome, id_acesso, id_cargo)
+VALUES('usuario1', 1, 1);
+
+INSERT INTO netdealdb.usuario
+(nome, id_acesso, id_cargo)
+VALUES('usuario2', 2, 2);
+
+INSERT INTO netdealdb.usuario
+(nome, id_acesso, id_cargo)
+VALUES('usuario3', 3, 3);
+
+INSERT INTO netdealdb.usuario
+(nome, id_acesso, id_cargo)
+VALUES('usuario4', 4, 4);
+
+INSERT INTO netdealdb.usuario
+(nome, id_acesso, id_cargo)
+VALUES('usuario5', 5, 5);
+
+INSERT INTO netdealdb.usuario
+(nome, id_acesso, id_cargo)
+VALUES('usuario6', 6, 6);
+
+INSERT INTO netdealdb.usuario
+(nome, id_acesso, id_cargo)
+VALUES('usuario7', 7, 7);
+
+INSERT INTO netdealdb.usuario
+(nome, id_acesso, id_cargo)
+VALUES('usuario8', 8, 8);
+
+INSERT INTO netdealdb.usuario
+(nome, id_acesso, id_cargo)
+VALUES('usuario9', 9, 9);
+
+INSERT INTO netdealdb.usuario
+(nome, id_acesso, id_cargo)
+VALUES('usuario10', 10, 10);
+
+INSERT INTO netdealdb.usuario
+(nome, id_acesso, id_cargo)
+VALUES('usuario11', 11, 11);
+
+INSERT INTO netdealdb.usuario
+(nome, id_acesso, id_cargo)
+VALUES('usuario12', 12, 12);
+
+INSERT INTO netdealdb.usuario
+(nome, id_acesso, id_cargo)
+VALUES('usuario13', 13, 13);
+
+INSERT INTO netdealdb.usuario
+(nome, id_acesso, id_cargo)
+VALUES('usuario14', 14, 14);
+
+INSERT INTO netdealdb.usuario
+(nome, id_acesso, id_cargo)
+VALUES('usuario15', 15, 15);
+
+INSERT INTO netdealdb.usuario
+(nome, id_acesso, id_cargo)
+VALUES('usuario16', 16, 16);
+
+INSERT INTO netdealdb.usuario
+(nome, id_acesso, id_cargo)
+VALUES('usuario17', 17, 17);
+
+INSERT INTO netdealdb.acesso
+(login, acesso)
+VALUES('login18', '12345');
+
+INSERT INTO netdealdb.usuario
+(nome, id_acesso, id_cargo)
+VALUES('usuario18', 18, 7);
+
+ALTER TABLE netdealdb.usuario ADD id_cargo_subordinado INTEGER NULL;
+ALTER TABLE netdealdb.usuario ADD CONSTRAINT usuario_cargo_subordinado_FK_ FOREIGN KEY (id_cargo_subordinado) REFERENCES netdealdb.cargo(id);
+
+UPDATE netdealdb.usuario
+SET nome='usuario1', id_acesso=1, id_cargo=1, id_cargo_subordinado=2
+WHERE id=1;
+
+UPDATE netdealdb.usuario
+SET nome='usuario2', id_acesso=2, id_cargo=2, id_cargo_subordinado=3
+WHERE id=2;
+
+UPDATE netdealdb.usuario
+SET nome='usuario3', id_acesso=3, id_cargo=3, id_cargo_subordinado=4
+WHERE id=3;
+
+ALTER TABLE netdealdb.usuario DROP FOREIGN KEY usuario_cargo_subordinado_FK_;
+ALTER TABLE netdealdb.usuario DROP COLUMN id_cargo_subordinado;
+ALTER TABLE netdealdb.usuario DROP FOREIGN KEY usuario_FK;
+ALTER TABLE netdealdb.usuario DROP FOREIGN KEY usuario_FK_1;
+
+ALTER TABLE netdealdb.usuario ADD CONSTRAINT usuario_acesso_FK FOREIGN KEY (id_acesso) REFERENCES netdealdb.acesso(id);
+ALTER TABLE netdealdb.usuario ADD CONSTRAINT usuario_cargo_FK FOREIGN KEY (id_cargo) REFERENCES netdealdb.cargo(id);
+ALTER TABLE netdealdb.usuario ADD id_usuario_subordinacao INTEGER NULL;
+
+UPDATE netdealdb.usuario
+SET nome='usuario1', id_acesso=1, id_cargo=1, id_usuario_subordinacao=NULL
+WHERE id=1;
+UPDATE netdealdb.usuario
+SET nome='usuario2', id_acesso=2, id_cargo=2, id_usuario_subordinacao=1
+WHERE id=2;
+UPDATE netdealdb.usuario
+SET nome='usuario3', id_acesso=3, id_cargo=3, id_usuario_subordinacao=2
+WHERE id=3;
+UPDATE netdealdb.usuario
+SET nome='usuario4', id_acesso=4, id_cargo=4, id_usuario_subordinacao=3
+WHERE id=4;
+UPDATE netdealdb.usuario
+SET nome='usuario5', id_acesso=5, id_cargo=5, id_usuario_subordinacao=3
+WHERE id=5;
+UPDATE netdealdb.usuario
+SET nome='usuario6', id_acesso=6, id_cargo=6, id_usuario_subordinacao=3
+WHERE id=6;
+UPDATE netdealdb.usuario
+SET nome='usuario7', id_acesso=7, id_cargo=7, id_usuario_subordinacao=4
+WHERE id=7;
+UPDATE netdealdb.usuario
+SET nome='usuario8', id_acesso=8, id_cargo=8, id_usuario_subordinacao=5
+WHERE id=8;
+UPDATE netdealdb.usuario
+SET nome='usuario9', id_acesso=9, id_cargo=9, id_usuario_subordinacao=6
+WHERE id=9;
+UPDATE netdealdb.usuario
+SET nome='usuario10', id_acesso=10, id_cargo=10, id_usuario_subordinacao=7
+WHERE id=10;
+UPDATE netdealdb.usuario
+SET nome='usuario11', id_acesso=11, id_cargo=11, id_usuario_subordinacao=8
+WHERE id=11;
+UPDATE netdealdb.usuario
+SET nome='usuario12', id_acesso=12, id_cargo=12, id_usuario_subordinacao=9
+WHERE id=12;
+UPDATE netdealdb.usuario
+SET nome='usuario13', id_acesso=13, id_cargo=13, id_usuario_subordinacao=10
+WHERE id=13;
+UPDATE netdealdb.usuario
+SET nome='usuario14', id_acesso=14, id_cargo=14, id_usuario_subordinacao=10
+WHERE id=14;
+UPDATE netdealdb.usuario
+SET nome='usuario15', id_acesso=15, id_cargo=15, id_usuario_subordinacao=10
+WHERE id=15;
+UPDATE netdealdb.usuario
+SET nome='usuario16', id_acesso=16, id_cargo=16, id_usuario_subordinacao=11
+WHERE id=16;
+UPDATE netdealdb.usuario
+SET nome='usuario17', id_acesso=17, id_cargo=17, id_usuario_subordinacao=12
+WHERE id=17;
+UPDATE netdealdb.usuario
+SET nome='usuario18', id_acesso=18, id_cargo=7, id_usuario_subordinacao=4
+WHERE id=18;
+
+-- netdealdb.usuario_simples definition
+
+CREATE TABLE `usuario_simples` (
+  `name` varchar(100) NOT NULL,
+  `subordination` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`name`),
+  KEY `usuario_simples_FK` (`subordination`),
+  CONSTRAINT `usuario_simples_FK` FOREIGN KEY (`subordination`) REFERENCES `usuario_simples` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO netdealdb.usuario_simples
+(name)
+VALUES('Ranger Verde');
+
+INSERT INTO netdealdb.usuario_simples
+(name, subordination)
+VALUES('Ranger Vermelho', 'Ranger Verde');
+
+INSERT INTO netdealdb.usuario_simples
+(name, subordination)
+VALUES('Ranger Azul', 'Ranger Vermelho');
+
+INSERT INTO netdealdb.usuario_simples
+(name, subordination)
+VALUES('Ranger Rosa', 'Ranger Vermelho');
+
+INSERT INTO netdealdb.usuario_simples
+(name, subordination)
+VALUES('Ranger Amarelo', 'Ranger Vermelho');
+
+INSERT INTO netdealdb.usuario_simples
+(name, subordination)
+VALUES('Ranger Preto', 'Ranger Vermelho');
+
+INSERT INTO netdealdb.usuario_simples
+(name, subordination)
+VALUES('Ranger Cinza', 'Ranger Preto');
+
+INSERT INTO netdealdb.usuario_simples
+(name, subordination)
+VALUES('Ranger Purpura', 'Ranger Azul');
+
+INSERT INTO netdealdb.usuario_simples
+(name, subordination)
+VALUES('Ranger Bege', 'Ranger Amarelo');
+
+ALTER TABLE netdealdb.acesso ADD score INTEGER NULL;
+
+
+select 
+us.nome,
+ac.login,
+ca.descricao cargo,
+ca.id 
+from 
+usuario us, 
+acesso ac, 
+cargo ca
+where 1=1
+and us.id_acesso = ac.id 
+and us.id_cargo = ca.id 
+
+select 
+us.nome,
+ac.login,
+ca.descricao cargo_subordinado,
+hi.id_cargo_subordinado
+from 
+usuario us, 
+hierarquia hi,
+cargo ca,
+acesso ac
+where us.id_cargo = 7
+and us.id_cargo = hi.id_cargo
+and hi.id_cargo_subordinado  = ca.id
+and us.id_acesso = ac.id 
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
